@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Order>
+
+<h2>Orders</h2>
+
+<p>
+   @* <a asp-controller ="Orders" asp-action="Create" class="btn btn-primary">Create New Order</a>*@
+    <a asp-controller="Orders" asp-action="Filter" class="btn btn-secondary">Filter Orders</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Weight)</th>
+            <th>@Html.DisplayNameFor(model => model.District)</th>
+            <th>@Html.DisplayNameFor(model => model.DeliveryTime)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Weight</td>
+                <td>@item.District</td>
+                <td>@item.DeliveryTime.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

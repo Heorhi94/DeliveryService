@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Order>
+
+<h2>Filtered Orders</h2>
+
+<a asp-action="Filter" class="btn btn-secondary">Back to Filter</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Weight)</th>
+            <th>@Html.DisplayNameFor(model => model.District)</th>
+            <th>@Html.DisplayNameFor(model => model.DeliveryTime)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Weight</td>
+                <td>@item.District</td>
+                <td>@item.DeliveryTime.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
